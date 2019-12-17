@@ -1,0 +1,36 @@
+html, body, pre, code, kbd, samp {
+  font-family: "Times New Roman";
+  color: white;
+}
+
+body {
+  background: navy;
+  padding: 20px;
+}
+
+#app {
+  background: black;
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.2s;
+}
+
+li {
+  margin: 8px 0;
+}
+
+del {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.padding {
+  padding: 1px 7px 2px;
+}
+
+.flex {
+  display: flex;
+}
+
+.space {
+  flex-grow: 1;
+}
