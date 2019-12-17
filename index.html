@@ -1,0 +1,41 @@
+
+
+<div id="app">
+  <h1>TODOS</h1>
+  <head>
+  <link rel="stylesheet" href="styles.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex"></script>
+  
+  <input type="text" class="nes-input" placeholder="Add todo..." v-on:keyup.enter="addTodo">     
+    
+  <ul>
+    <li v-for="todo in todos" :key="todo.id" class="flex">
+      <label>
+        <input type="checkbox" class="nes-checkbox" v-model="todo.done">
+        <span>&nbsp</span>
+      </label>
+      <del v-if="todo.done">{{ todo.text }}</del>
+      <span v-else>{{ todo.text }}</span>
+      <div class="space"></div>
+      <button class="nes-btn is-error padding" v-on:click="removeTodo(todo.id)">X</button>
+    </li>
+  </ul>
+</div>
+<script>
+const vueApp = new Vue({
+  el: "#app",
+  data: {
+  	todos: [{text: 'test', done: false, id: Date.now()}]
+  },
+  methods: {
+  	addTodo({target}){
+    	this.todos.push({text: target.value, done: false, id: Date.now()})
+      target.value = ''
+    },
+    removeTodo(id) {
+    	this.todos = this.todos.filter(todo => todo.id !== id)
+    }
+  }
+})</script>
